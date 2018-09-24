@@ -9,7 +9,7 @@ enum {
       STACK_SIZE        = 21,
       SCOPE_UBOUND      = -1,
       SCOPE_SIZE        = 0,
-      LA_STATE_OFFSET   = 392,
+      LA_STATE_OFFSET   = 251,
       MAX_LA            = 1,
       NUM_RULES         = 141,
       NUM_TERMINALS     = 19,

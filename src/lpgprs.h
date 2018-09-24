@@ -1,7 +1,6 @@
 #ifndef lpgprs_INCLUDED
 #define lpgprs_INCLUDED
 
-
 #undef  SCOPE_REPAIR
 #undef  DEFERRED_RECOVERY
 #undef  FULL_DIAGNOSIS

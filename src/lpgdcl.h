@@ -1,7 +1,10 @@
 #ifndef lpgdcl_INCLUDED
 #define lpgdcl_INCLUDED
 
-const unsigned char rhs[] = {0,
+
+#define CLASS_HEADER
+
+const unsigned char  CLASS_HEADER rhs[] = {0,
             7,1,1,1,1,1,1,1,1,1,1,2,2,3,1,
             1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
             2,1,1,1,1,1,1,2,3,1,2,3,1,1,1,
@@ -14,7 +17,7 @@ const unsigned char rhs[] = {0,
             0,2,0,2,0,2
                  };
 
-const unsigned short lhs[] = {0,
+const unsigned short CLASS_HEADER lhs[] = {0,
             9,9,17,17,17,17,17,17,17,17,18,18,19,19,5,
             5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,
             20,22,22,22,22,22,22,23,25,25,25,25,26,26,26,
@@ -40,10 +43,10 @@ const unsigned short lhs[] = {0,
             251,251,251,147
                  };
 
-const unsigned short *base_action = lhs;
+const unsigned short *CLASS_HEADER base_action = lhs;
 
 
-const unsigned char  term_check[] = {0,
+const unsigned char  CLASS_HEADER term_check[] = {0,
             0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,
             15,16,0,1,2,3,4,5,6,7,8,9,10,11,12,
             13,14,15,16,0,1,2,3,4,5,6,7,8,9,10,
@@ -61,7 +64,7 @@ const unsigned char  term_check[] = {0,
             0,0,0,0,12,0,0,0,0,0,0,18,0
                  };
 
-const unsigned short term_action[] = {0,
+const unsigned short CLASS_HEADER term_action[] = {0,
             99,326,327,354,367,361,359,355,356,362,
             363,364,365,357,358,368,366,251,326,327,
             354,367,361,359,355,356,362,363,364,365,

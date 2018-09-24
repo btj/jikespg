@@ -11,7 +11,7 @@ jikespg: ctabs.o globals.o lpgparse.o lpgutil.o main.o \
 	    ptables.o remsp.o resolve.o spacetab.o tabutil.o timetab.o
 
 lpgact.i: jikespg.g
-	  jikespg jikespg
+	  jikespg -table jikespg
 	  rm jikespg.l
 	  make
 	  rm CRASH_THE_INITIAL_MAKE_COMMAND_TO_BREAK_OUT
@@ -22,7 +22,7 @@ main.o:	main.c common.h
 globals.o: globals.c common.h
 	$(CC) -c globals.c
 
-lpgparse.o: lpgprs.h lpgdcl.h lpgdef.h lpgact.h lpgact.i lpgsym.h \
+lpgparse.o: lpgact.i \
 	    common.h lpgparse.h	lpgparse.c
 	$(CC) -c lpgparse.c
 
@@ -87,3 +87,11 @@ clean:
 	rm -f spacetab.o 
 	rm -f tabutil.o
 	rm -f timetab.o
+
+veryclean: clean
+	rm -f lpgprs.h
+	rm -f lpgdcl.h
+	rm -f lpgdef.h
+	rm -f lpgact.h
+	rm -f lpgact.i
+	rm -f lpgsym.h
