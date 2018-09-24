@@ -1594,13 +1594,22 @@ static void print_symbols(void)
               2 * MAX_PARM_SIZE + /* max length of prefix + suffix */
               64];                /* +64 for error messages lines  */
                                   /* or other fillers(blank, =,...)*/
-    if (java_bit)
+    if (sym_file_prolog == NULL)
     {
-         strcpy(line, "interface ");
-         strcat(line, sym_tag);
-         strcat(line, "\n{\n    public final static int\n");
+        if (java_bit)
+        {
+            strcpy(line, "interface ");
+            strcat(line, sym_tag);
+            strcat(line, "\n{\n    public final static int\n");
+        }
+        else strcpy(line, "enum {\n");
     }
-    else strcpy(line, "enum {\n");
+    else
+    {
+        line[0] = '\0';
+        fprintf(syssym, "%s", sym_file_prolog);
+    }
+
 
     /*********************************************************/
     /* We write the terminal symbols map.                    */

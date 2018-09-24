@@ -30,16 +30,16 @@ static void (*rule_action[]) (void) = {NULL,
      definition_expected, /* 29 */
      definition_expected, /* 30 */
      null_action, /* 31 */
-     process_terminal, /* 32 */
-     process_terminal, /* 33 */
-     process_terminal, /* 34 */
-     bad_terminal, /* 35 */
-     bad_terminal, /* 36 */
-     act37, /* 37 */
-     null_action, /* 38 */
-     act39, /* 39 */
+     null_action, /* 32 */
+     null_action, /* 33 */
+     process_terminals_prolog, /* 34 */
+     process_terminal, /* 35 */
+     process_terminal, /* 36 */
+     process_terminal, /* 37 */
+     bad_terminal, /* 38 */
+     bad_terminal, /* 39 */
      null_action, /* 40 */
-     null_action, /* 41 */
+     act41, /* 41 */
      null_action, /* 42 */
      null_action, /* 43 */
      null_action, /* 44 */
@@ -52,55 +52,55 @@ static void (*rule_action[]) (void) = {NULL,
      null_action, /* 51 */
      null_action, /* 52 */
      null_action, /* 53 */
-     bad_alias_rhs, /* 54 */
-     bad_alias_rhs, /* 55 */
+     null_action, /* 54 */
+     null_action, /* 55 */
      bad_alias_rhs, /* 56 */
-     act57, /* 57 */
-     null_action, /* 58 */
+     bad_alias_rhs, /* 57 */
+     bad_alias_rhs, /* 58 */
      act59, /* 59 */
-     missing_quote, /* 60 */
-     missing_quote, /* 61 */
-     null_action, /* 62 */
-     act63, /* 63 */
-     bad_start_symbol, /* 64 */
-     bad_start_symbol, /* 65 */
+     null_action, /* 60 */
+     act61, /* 61 */
+     missing_quote, /* 62 */
+     missing_quote, /* 63 */
+     null_action, /* 64 */
+     act65, /* 65 */
      bad_start_symbol, /* 66 */
      bad_start_symbol, /* 67 */
-     act68, /* 68 */
-     misplaced_keyword_found_in_START_section, /* 69 */
-     misplaced_keyword_found_in_START_section, /* 70 */
+     bad_start_symbol, /* 68 */
+     bad_start_symbol, /* 69 */
+     act70, /* 70 */
      misplaced_keyword_found_in_START_section, /* 71 */
      misplaced_keyword_found_in_START_section, /* 72 */
-     act73, /* 73 */
-     act74, /* 74 */
-     null_action, /* 75 */
-     null_action, /* 76 */
-     act77, /* 77 */
-     act78, /* 78 */
+     misplaced_keyword_found_in_START_section, /* 73 */
+     misplaced_keyword_found_in_START_section, /* 74 */
+     act75, /* 75 */
+     act76, /* 76 */
+     null_action, /* 77 */
+     null_action, /* 78 */
      act79, /* 79 */
-     null_action, /* 80 */
-     null_action, /* 81 */
-     act82, /* 82 */
-     act83, /* 83 */
-     bad_first_symbol_in_RULES_section, /* 84 */
-     bad_first_symbol_in_RULES_section, /* 85 */
+     act80, /* 80 */
+     act81, /* 81 */
+     null_action, /* 82 */
+     null_action, /* 83 */
+     act84, /* 84 */
+     act85, /* 85 */
      bad_first_symbol_in_RULES_section, /* 86 */
      bad_first_symbol_in_RULES_section, /* 87 */
-     rule_without_left_hand_side, /* 88 */
-     rule_without_left_hand_side, /* 89 */
+     bad_first_symbol_in_RULES_section, /* 88 */
+     bad_first_symbol_in_RULES_section, /* 89 */
      rule_without_left_hand_side, /* 90 */
-     act91, /* 91 */
-     act92, /* 92 */
+     rule_without_left_hand_side, /* 91 */
+     rule_without_left_hand_side, /* 92 */
      act93, /* 93 */
-     misplaced_keyword_found_in_RULES_section, /* 94 */
-     misplaced_keyword_found_in_RULES_section, /* 95 */
+     act94, /* 94 */
+     act95, /* 95 */
      misplaced_keyword_found_in_RULES_section, /* 96 */
      misplaced_keyword_found_in_RULES_section, /* 97 */
      misplaced_keyword_found_in_RULES_section, /* 98 */
-     null_action, /* 99 */
-     act100, /* 100 */
+     misplaced_keyword_found_in_RULES_section, /* 99 */
+     misplaced_keyword_found_in_RULES_section, /* 100 */
      null_action, /* 101 */
-     null_action, /* 102 */
+     act102, /* 102 */
      null_action, /* 103 */
      null_action, /* 104 */
      null_action, /* 105 */
@@ -108,31 +108,31 @@ static void (*rule_action[]) (void) = {NULL,
      null_action, /* 107 */
      null_action, /* 108 */
      null_action, /* 109 */
-     misplaced_keyword_found_in_NAMES_section, /* 110 */
-     misplaced_keyword_found_in_NAMES_section, /* 111 */
+     null_action, /* 110 */
+     null_action, /* 111 */
      misplaced_keyword_found_in_NAMES_section, /* 112 */
      misplaced_keyword_found_in_NAMES_section, /* 113 */
      misplaced_keyword_found_in_NAMES_section, /* 114 */
      misplaced_keyword_found_in_NAMES_section, /* 115 */
-     act116, /* 116 */
-     act117, /* 117 */
-     null_action, /* 118 */
-     null_action, /* 119 */
-     process_TERMINALS_section, /* 120 */
-     process_TERMINALS_section, /* 121 */
-     process_ALIAS_section, /* 122 */
-     process_ALIAS_section, /* 123 */
-     null_action, /* 124 */
-     null_action, /* 125 */
+     misplaced_keyword_found_in_NAMES_section, /* 116 */
+     misplaced_keyword_found_in_NAMES_section, /* 117 */
+     act118, /* 118 */
+     act119, /* 119 */
+     null_action, /* 120 */
+     null_action, /* 121 */
+     process_TERMINALS_section, /* 122 */
+     process_TERMINALS_section, /* 123 */
+     process_ALIAS_section, /* 124 */
+     process_ALIAS_section, /* 125 */
      null_action, /* 126 */
      null_action, /* 127 */
      null_action, /* 128 */
      null_action, /* 129 */
      null_action, /* 130 */
      null_action, /* 131 */
-     act132, /* 132 */
+     null_action, /* 132 */
      null_action, /* 133 */
-     null_action, /* 134 */
+     act134, /* 134 */
      null_action, /* 135 */
      null_action, /* 136 */
      null_action, /* 137 */
@@ -140,4 +140,6 @@ static void (*rule_action[]) (void) = {NULL,
      null_action, /* 139 */
      null_action, /* 140 */
      null_action, /* 141 */
+     null_action, /* 142 */
+     null_action, /* 143 */
      NULL};

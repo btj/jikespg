@@ -166,8 +166,15 @@ static void definition_expected(void)
     exit(12);
 }
 
+/* terminals_prolog ::= BLOCK */
+#line 307 "jikespg.g"
+static void process_terminals_prolog(void)
+{
+    sym_file_prolog = SYM1.block_contents;
+}
+
 /* terminal_symbol ::= SYMBOL */
-#line 302 "jikespg.g"
+#line 316 "jikespg.g"
 static void process_terminal(void)
 {
     assign_symbol_no(SYM1.name, OMEGA);
@@ -176,7 +183,7 @@ static void process_terminal(void)
 }
 
 /* terminal_symbol ::= DEFINE_KEY */
-#line 316 "jikespg.g"
+#line 330 "jikespg.g"
 static void bad_terminal(void)
 {
     sprintf(msg_line,
@@ -188,22 +195,9 @@ static void bad_terminal(void)
     exit(12);
 }
 
-/* terminal_symbol ::= BLOCK */
-#line 332 "jikespg.g"
-static void act37(void)
-{
-    sprintf(msg_line,
-            "Misplaced block found in TERMINALS section."
-            "  Line %d, column %d",
-            SYM1.start_line, SYM1.start_column);
-    PRNTERR(msg_line);
-
-    exit(12);
-}
-
 /* alias_definition ::= alias_lhs produces alias_rhs */
 #line 350 "jikespg.g"
-static void act39(void)
+static void act41(void)
 {
     register int image;
     char tok_string[SYMBOL_SIZE + 1];
@@ -392,7 +386,7 @@ static void bad_alias_rhs(void)
 
 /* bad_alias_rhs ::= BLOCK */
 #line 576 "jikespg.g"
-static void act57(void)
+static void act59(void)
 {
     sprintf(msg_line,
             "Misplaced block found in Alias section. "
@@ -405,7 +399,7 @@ static void act57(void)
 
 /* bad_alias_lhs ::= EMPTY_SYMBOL */
 #line 594 "jikespg.g"
-static void act59(void)
+static void act61(void)
 {
     sprintf(msg_line,
             "Empty symbol cannot be aliased. "
@@ -434,7 +428,7 @@ static void missing_quote(void)
 #line 630 "jikespg.g"
 /*********************************************************************/
 /*********************************************************************/
-static void act63(void)
+static void act65(void)
 {
     register struct node *q;
 
@@ -471,7 +465,7 @@ static void bad_start_symbol(void)
 
 /* start_symbol ::= BLOCK */
 #line 677 "jikespg.g"
-static void act68(void)
+static void act70(void)
 {
     sprintf(msg_line,
             "Misplaced block found in Start section. "
@@ -497,7 +491,7 @@ static void misplaced_keyword_found_in_START_section(void)
 
 /* rules_block ::= RULES_KEY */
 #line 712 "jikespg.g"
-static void act73(void)
+static void act75(void)
 {
     register struct node *q;
 
@@ -517,7 +511,7 @@ static void act73(void)
 
 /* rules_block ::= RULES_KEY rule_list */
 #line 733 "jikespg.g"
-static void act74(void)
+static void act76(void)
 {
     build_symno();
 
@@ -526,7 +520,7 @@ static void act74(void)
 
 /* rule_list ::= {action_block} SYMBOL produces */
 #line 749 "jikespg.g"
-static void act77(void)
+static void act79(void)
 {
     register struct node *q;
 
@@ -569,7 +563,7 @@ static void act77(void)
 
 /* rule_list ::= rule_list OR */
 #line 794 "jikespg.g"
-static void act78(void)
+static void act80(void)
 {
     num_rules++;
     if (num_rules >= (int)rulehdr_size)
@@ -591,7 +585,7 @@ static void act78(void)
 
 /* rule_list ::= rule_list SYMBOL produces */
 #line 817 "jikespg.g"
-static void act79(void)
+static void act81(void)
 {
     num_rules++;
     if (num_rules >= (int)rulehdr_size)
@@ -614,7 +608,7 @@ static void act79(void)
 
 /* rule_list ::= rule_list ERROR_SYMBOL */
 #line 846 "jikespg.g"
-static void act82(void)
+static void act84(void)
 {
     register struct node *q;
     char tok_string[SYMBOL_SIZE + 1];
@@ -648,7 +642,7 @@ static void act82(void)
 
 /* rule_list ::= rule_list SYMBOL */
 #line 881 "jikespg.g"
-static void act83(void)
+static void act85(void)
 {
     register int sym;
     register struct node *q;
@@ -710,7 +704,7 @@ static void rule_without_left_hand_side(void)
 
 /* rule_list ::= rule_list keyword produces */
 #line 956 "jikespg.g"
-static void act91(void)
+static void act93(void)
 {
     sprintf(msg_line,
             "Misplaced keyword found in Rules section "
@@ -723,7 +717,7 @@ static void act91(void)
 
 /* action_block ::= BLOCK */
 #line 971 "jikespg.g"
-static void act92(void)
+static void act94(void)
 {
     if (action_bit)
         add_block_definition(&(SYM1));
@@ -733,7 +727,7 @@ static void act92(void)
 
 /* action_block ::= HBLOCK */
 #line 982 "jikespg.g"
-static void act93(void)
+static void act95(void)
 {
     if (action_bit)
         add_block_definition(&(SYM1));
@@ -756,7 +750,7 @@ static void misplaced_keyword_found_in_RULES_section(void)
 
 /* names_definition ::= name produces name */
 #line 1020 "jikespg.g"
-static void act100(void)
+static void act102(void)
 {
     if (error_maps_bit)
     {
@@ -826,7 +820,7 @@ static void misplaced_keyword_found_in_NAMES_section(void)
 
 /* bad_name ::= BLOCK */
 #line 1122 "jikespg.g"
-static void act116(void)
+static void act118(void)
 {
     sprintf(msg_line,
             "Misplaced action block found in NAMES "
@@ -839,7 +833,7 @@ static void act116(void)
 
 /* bad_name ::= MACRO_NAME */
 #line 1136 "jikespg.g"
-static void act117(void)
+static void act119(void)
 {
     sprintf(msg_line,
             "Misplaced macro name found in NAMES "
@@ -924,7 +918,7 @@ static void process_ALIAS_section(void)
 
 /* {terminal_symbol} ::= */
 #line 1260 "jikespg.g"
-static void act132(void)
+static void act134(void)
 {
     assign_symbol_no(kempty, OMEGA);
     empty = symbol_image(kempty);

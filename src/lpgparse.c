@@ -8,6 +8,7 @@ static char hostfile[] = __FILE__;
 #undef SCOPE_UBOUND
 #undef SCOPE_SIZE
 #include "header.h"
+#include "string_buffer.h"
 #include "lpgsym.h"
 #include "lpgdef.h"
 #include "lpgdcl.h"
@@ -234,6 +235,8 @@ static void init_process(void)
     hblockb_len = strlen(hblockb);
     hblocke_len = strlen(hblocke);
 
+    string_buffer_init(&ct_block_contents_buffer);
+
     /*****************************************************/
     /* Keywords, Reserved symbols, and predefined macros */
     /*****************************************************/
@@ -284,6 +287,8 @@ static void exit_process(void)
     ffree(hash_table);
     ffree(input_buffer);
     ffree(rulehdr); /* allocated in action LPGACT when grammar is not empty */
+
+    string_buffer_destroy(&ct_block_contents_buffer);
 
     return;
 }
@@ -1857,6 +1862,8 @@ scan_token:
             ct_start_col = p1 - linestart;
         }
 
+        string_buffer_clear(&ct_block_contents_buffer);
+
         while(strncmp(p1, blocke, blocke_len) != 0)
         {
             if (*p1 == '\0')
@@ -1874,10 +1881,12 @@ scan_token:
                     i = bufend - p1;
                     if (i < MAX_LINE_SIZE)
                     {
+                        string_buffer_append_chars(&ct_block_contents_buffer, ct_ptr, p1 - ct_ptr);
                         strcpy(input_buffer, p1);
                         bufend = &input_buffer[i];
                         read_input();
                         p1 = &input_buffer[0];
+                        ct_ptr = p1;
                     }
                 }
                 line_no++;
@@ -1888,6 +1897,7 @@ scan_token:
         ct = BLOCK_TK;
         ct_end_line = line_no;
         ct_end_col = p1 - linestart - 1;
+        string_buffer_append_chars(&ct_block_contents_buffer, ct_ptr, p1 - ct_ptr);
         p2 = p1 + blocke_len;
 
         return;
@@ -2181,8 +2191,13 @@ static void token_action(void)
     {
         memcpy(terminal[top].name, ct_ptr, ct_length);
         terminal[top].name[ct_length] = '\0';
+        terminal[top].block_contents = 0;
     }
-    else terminal[top].name[0] = '\0';
+    else
+    {
+        terminal[top].name[0] = '\0';
+        terminal[top].block_contents = string_buffer_duplicate_string(&ct_block_contents_buffer);
+    }
 
     return;
 }

@@ -193,6 +193,8 @@ static short ct            = 0, /* current token & related variables */
 static long ct_start_line = 0,
             ct_end_line   = 0;
 
+static struct string_buffer ct_block_contents_buffer;
+
 static int num_acts = 0,     /* macro definition & action variables */
            num_defs = 0;
 
@@ -246,6 +248,7 @@ struct terminal_type   /* structure used to hold token information */
           length,
           kind;
     char  name[SYMBOL_SIZE + 1];
+    char *block_contents;
 };
 
 static struct rulehdr_type   *rulehdr = NULL;

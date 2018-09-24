@@ -293,8 +293,22 @@ static void definition_expected(void)
 /:$offset definition_expected, /* $rule_number */:/
 
 
-    terminals_block ::= TERMINALS_KEY {terminal_symbol}
+    terminals_block ::= TERMINALS_KEY [terminals_prolog] {terminal_symbol}
 /:$no_action:/
+
+    [terminals_prolog] ::= $EMPTY
+/:$no_action:/
+                         | terminals_prolog
+/:$no_action:/
+
+    terminals_prolog ::= BLOCK
+/:$offset process_terminals_prolog, /* $rule_number */:/
+/.$location
+static void process_terminals_prolog(void)
+{
+    sym_file_prolog = SYM1.block_contents;
+}
+./
 
     terminal_symbol ::= SYMBOL
 /:$offset process_terminal, /* $rule_number */:/
@@ -326,20 +340,6 @@ static void bad_terminal(void)
 ./
                       | TERMINALS_KEY      -- No Good !!!
 /:$offset bad_terminal, /* $rule_number */:/
-                      | BLOCK           -- No good !!!
-/:$offset $action:/
-/.$location
-static void act$rule_number(void)
-{
-    sprintf(msg_line,
-            "Misplaced block found in TERMINALS section."
-            "  Line %d, column %d",
-            SYM1.start_line, SYM1.start_column);
-    PRNTERR(msg_line);
-
-    exit(12);
-}
-./
 
     alias_block ::= ALIAS_KEY {alias_definition}
 /:$no_action:/

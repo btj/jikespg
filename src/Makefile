@@ -3,10 +3,10 @@ CC = gcc $(CPPFLAGS) $(CFLAGS)
 
 all: jikespg
 
-jikespg: ctabs.o globals.o lpgparse.o lpgutil.o main.o \
+jikespg: ctabs.o globals.o lpgparse.o lpgutil.o main.o string_buffer.o \
      mkfirst.o mkred.o mkstates.o partset.o prntstat.o produce.o \
      ptables.o remsp.o resolve.o spacetab.o tabutil.o timetab.o
-	$(CC) $(LDFLAGS) -o jikespg ctabs.o globals.o lpgparse.o lpgutil.o main.o \
+	$(CC) $(LDFLAGS) -o jikespg ctabs.o globals.o lpgparse.o lpgutil.o main.o string_buffer.o \
 	    mkfirst.o mkred.o mkstates.o partset.o prntstat.o produce.o \
 	    ptables.o remsp.o resolve.o spacetab.o tabutil.o timetab.o
 
@@ -22,8 +22,11 @@ main.o:	main.c common.h
 globals.o: globals.c common.h
 	$(CC) -c globals.c
 
+string_buffer.o: string_buffer.c string_buffer.h header.h
+	$(CC) -c string_buffer.c
+
 lpgparse.o: lpgact.i \
-	    common.h lpgparse.h	lpgparse.c
+	    common.h lpgparse.h	lpgparse.c string_buffer.h
 	$(CC) -c lpgparse.c
 
 lpgutil.o: lpgutil.c common.h
