@@ -8,6 +8,7 @@ enum {
       START_KEY_TK = 11,
       RULES_KEY_TK = 12,
       NAMES_KEY_TK = 16,
+      DEFINITIONS_KEY_TK = 19,
       END_KEY_TK = 18,
       EQUIVALENCE_TK = 1,
       ARROW_TK = 2,
@@ -17,10 +18,10 @@ enum {
       EOL_SYMBOL_TK = 13,
       EOF_SYMBOL_TK = 14,
       MACRO_NAME_TK = 15,
-      SYMBOL_TK = 3,
-      BLOCK_TK = 4,
+      SYMBOL_TK = 4,
+      BLOCK_TK = 3,
       HBLOCK_TK = 17,
-      EOF_TK = 19
+      EOF_TK = 20
      };
 
 #endif /* lpgsym_INCLUDED */

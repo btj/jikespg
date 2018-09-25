@@ -142,4 +142,7 @@ static void (*rule_action[]) (void) = {NULL,
      null_action, /* 141 */
      null_action, /* 142 */
      null_action, /* 143 */
+     null_action, /* 144 */
+     null_action, /* 145 */
+     process_definitions_block, /* 146 */
      NULL};

@@ -57,7 +57,7 @@ static void add_block_definition(struct terminal_type *term)
 }
 
 /* bad_symbol ::= EQUIVALENCE */
-#line 136 "jikespg.g"
+#line 137 "jikespg.g"
 static void bad_first_symbol(void)
 {
     sprintf(msg_line,
@@ -70,7 +70,7 @@ static void bad_first_symbol(void)
 }
 
 /* bad_symbol ::= BLOCK */
-#line 162 "jikespg.g"
+#line 163 "jikespg.g"
 static void act10(void)
 {
     sprintf(msg_line,
@@ -83,7 +83,7 @@ static void act10(void)
 }
 
 /* macro_list ::= macro_name_symbol macro_block */
-#line 182 "jikespg.g"
+#line 183 "jikespg.g"
 static void act13(void)
 {
     if (action_bit)
@@ -93,7 +93,7 @@ static void act13(void)
 }
 
 /* macro_list ::= macro_list macro_name_symbol macro_block */
-#line 193 "jikespg.g"
+#line 194 "jikespg.g"
 static void act14(void)
 {
     if (action_bit)
@@ -103,7 +103,7 @@ static void act14(void)
 }
 
 /* macro_name_symbol ::= SYMBOL */
-#line 207 "jikespg.g"
+#line 208 "jikespg.g"
 static void act16(void)
 {
     sprintf(msg_line,
@@ -116,7 +116,7 @@ static void act16(void)
 }
 
 /* macro_name_symbol ::= OR */
-#line 221 "jikespg.g"
+#line 222 "jikespg.g"
 static void bad_macro_name(void)
 {
     sprintf(msg_line,
@@ -129,7 +129,7 @@ static void bad_macro_name(void)
 }
 
 /* macro_name_symbol ::= BLOCK */
-#line 241 "jikespg.g"
+#line 242 "jikespg.g"
 static void act21(void)
 {
     sprintf(msg_line,
@@ -142,7 +142,7 @@ static void act21(void)
 }
 
 /* macro_name_symbol ::= DEFINE_KEY */
-#line 255 "jikespg.g"
+#line 256 "jikespg.g"
 static void act22(void)
 {
     sprintf(msg_line,
@@ -154,7 +154,7 @@ static void act22(void)
 }
 
 /* macro_block ::= OR */
-#line 271 "jikespg.g"
+#line 272 "jikespg.g"
 static void definition_expected(void)
 {
     sprintf(msg_line,
@@ -167,14 +167,14 @@ static void definition_expected(void)
 }
 
 /* terminals_prolog ::= BLOCK */
-#line 307 "jikespg.g"
+#line 308 "jikespg.g"
 static void process_terminals_prolog(void)
 {
     sym_file_prolog = SYM1.block_contents;
 }
 
 /* terminal_symbol ::= SYMBOL */
-#line 316 "jikespg.g"
+#line 317 "jikespg.g"
 static void process_terminal(void)
 {
     assign_symbol_no(SYM1.name, OMEGA);
@@ -183,7 +183,7 @@ static void process_terminal(void)
 }
 
 /* terminal_symbol ::= DEFINE_KEY */
-#line 330 "jikespg.g"
+#line 331 "jikespg.g"
 static void bad_terminal(void)
 {
     sprintf(msg_line,
@@ -196,7 +196,7 @@ static void bad_terminal(void)
 }
 
 /* alias_definition ::= alias_lhs produces alias_rhs */
-#line 350 "jikespg.g"
+#line 351 "jikespg.g"
 static void act41(void)
 {
     register int image;
@@ -372,7 +372,7 @@ static void act41(void)
 }
 
 /* bad_alias_rhs ::= DEFINE_KEY */
-#line 558 "jikespg.g"
+#line 559 "jikespg.g"
 static void bad_alias_rhs(void)
 {
     sprintf(msg_line,
@@ -385,7 +385,7 @@ static void bad_alias_rhs(void)
 }
 
 /* bad_alias_rhs ::= BLOCK */
-#line 576 "jikespg.g"
+#line 577 "jikespg.g"
 static void act59(void)
 {
     sprintf(msg_line,
@@ -398,7 +398,7 @@ static void act59(void)
 }
 
 /* bad_alias_lhs ::= EMPTY_SYMBOL */
-#line 594 "jikespg.g"
+#line 595 "jikespg.g"
 static void act61(void)
 {
     sprintf(msg_line,
@@ -411,7 +411,7 @@ static void act61(void)
 }
 
 /* bad_alias_lhs ::= produces */
-#line 608 "jikespg.g"
+#line 609 "jikespg.g"
 static void missing_quote(void)
 {
     sprintf(msg_line,
@@ -425,7 +425,7 @@ static void missing_quote(void)
 }
 
 /* start_symbol ::= SYMBOL */
-#line 630 "jikespg.g"
+#line 631 "jikespg.g"
 /*********************************************************************/
 /*********************************************************************/
 static void act65(void)
@@ -451,7 +451,7 @@ static void act65(void)
 }
 
 /* start_symbol ::= OR */
-#line 657 "jikespg.g"
+#line 658 "jikespg.g"
 static void bad_start_symbol(void)
 {
     sprintf(msg_line,
@@ -464,7 +464,7 @@ static void bad_start_symbol(void)
 }
 
 /* start_symbol ::= BLOCK */
-#line 677 "jikespg.g"
+#line 678 "jikespg.g"
 static void act70(void)
 {
     sprintf(msg_line,
@@ -477,7 +477,7 @@ static void act70(void)
 }
 
 /* start_symbol ::= DEFINE_KEY */
-#line 691 "jikespg.g"
+#line 692 "jikespg.g"
 static void misplaced_keyword_found_in_START_section(void)
 {
     sprintf(msg_line,
@@ -490,7 +490,7 @@ static void misplaced_keyword_found_in_START_section(void)
 }
 
 /* rules_block ::= RULES_KEY */
-#line 712 "jikespg.g"
+#line 713 "jikespg.g"
 static void act75(void)
 {
     register struct node *q;
@@ -510,7 +510,7 @@ static void act75(void)
 }
 
 /* rules_block ::= RULES_KEY rule_list */
-#line 733 "jikespg.g"
+#line 734 "jikespg.g"
 static void act76(void)
 {
     build_symno();
@@ -519,7 +519,7 @@ static void act76(void)
 }
 
 /* rule_list ::= {action_block} SYMBOL produces */
-#line 749 "jikespg.g"
+#line 750 "jikespg.g"
 static void act79(void)
 {
     register struct node *q;
@@ -562,7 +562,7 @@ static void act79(void)
 }
 
 /* rule_list ::= rule_list OR */
-#line 794 "jikespg.g"
+#line 795 "jikespg.g"
 static void act80(void)
 {
     num_rules++;
@@ -584,7 +584,7 @@ static void act80(void)
 }
 
 /* rule_list ::= rule_list SYMBOL produces */
-#line 817 "jikespg.g"
+#line 818 "jikespg.g"
 static void act81(void)
 {
     num_rules++;
@@ -607,7 +607,7 @@ static void act81(void)
 }
 
 /* rule_list ::= rule_list ERROR_SYMBOL */
-#line 846 "jikespg.g"
+#line 847 "jikespg.g"
 static void act84(void)
 {
     register struct node *q;
@@ -641,7 +641,7 @@ static void act84(void)
 }
 
 /* rule_list ::= rule_list SYMBOL */
-#line 881 "jikespg.g"
+#line 882 "jikespg.g"
 static void act85(void)
 {
     register int sym;
@@ -678,7 +678,7 @@ static void act85(void)
 }
 
 /* rule_list ::= OR */
-#line 919 "jikespg.g"
+#line 920 "jikespg.g"
 static void bad_first_symbol_in_RULES_section(void)
 {
     sprintf(msg_line,
@@ -691,7 +691,7 @@ static void bad_first_symbol_in_RULES_section(void)
 }
 
 /* rule_list ::= rule_list OR produces */
-#line 939 "jikespg.g"
+#line 940 "jikespg.g"
 static void rule_without_left_hand_side(void)
 {
     sprintf(msg_line,
@@ -703,7 +703,7 @@ static void rule_without_left_hand_side(void)
 }
 
 /* rule_list ::= rule_list keyword produces */
-#line 956 "jikespg.g"
+#line 957 "jikespg.g"
 static void act93(void)
 {
     sprintf(msg_line,
@@ -716,7 +716,7 @@ static void act93(void)
 }
 
 /* action_block ::= BLOCK */
-#line 971 "jikespg.g"
+#line 972 "jikespg.g"
 static void act94(void)
 {
     if (action_bit)
@@ -726,7 +726,7 @@ static void act94(void)
 }
 
 /* action_block ::= HBLOCK */
-#line 982 "jikespg.g"
+#line 983 "jikespg.g"
 static void act95(void)
 {
     if (action_bit)
@@ -736,7 +736,7 @@ static void act95(void)
 }
 
 /* keyword ::= DEFINE_KEY */
-#line 994 "jikespg.g"
+#line 995 "jikespg.g"
 static void misplaced_keyword_found_in_RULES_section(void)
 {
     sprintf(msg_line,
@@ -749,7 +749,7 @@ static void misplaced_keyword_found_in_RULES_section(void)
 }
 
 /* names_definition ::= name produces name */
-#line 1020 "jikespg.g"
+#line 1021 "jikespg.g"
 static void act102(void)
 {
     if (error_maps_bit)
@@ -806,7 +806,7 @@ static void act102(void)
 }
 
 /* bad_name ::= DEFINE_KEY */
-#line 1098 "jikespg.g"
+#line 1099 "jikespg.g"
 static void misplaced_keyword_found_in_NAMES_section(void)
 {
     sprintf(msg_line,
@@ -819,7 +819,7 @@ static void misplaced_keyword_found_in_NAMES_section(void)
 }
 
 /* bad_name ::= BLOCK */
-#line 1122 "jikespg.g"
+#line 1123 "jikespg.g"
 static void act118(void)
 {
     sprintf(msg_line,
@@ -832,7 +832,7 @@ static void act118(void)
 }
 
 /* bad_name ::= MACRO_NAME */
-#line 1136 "jikespg.g"
+#line 1137 "jikespg.g"
 static void act119(void)
 {
     sprintf(msg_line,
@@ -845,7 +845,7 @@ static void act119(void)
 }
 
 /* [terminals_block] ::= */
-#line 1158 "jikespg.g"
+#line 1159 "jikespg.g"
 static void process_TERMINALS_section(void)
 {
     num_terminals = num_symbols;
@@ -866,7 +866,7 @@ static void process_TERMINALS_section(void)
 }
 
 /* [alias_block] ::= */
-#line 1183 "jikespg.g"
+#line 1184 "jikespg.g"
 static void process_ALIAS_section(void)
 {
     register int i,
@@ -917,11 +917,18 @@ static void process_ALIAS_section(void)
 }
 
 /* {terminal_symbol} ::= */
-#line 1260 "jikespg.g"
+#line 1261 "jikespg.g"
 static void act134(void)
 {
     assign_symbol_no(kempty, OMEGA);
     empty = symbol_image(kempty);
 
     return;
+}
+
+/* definitions_block ::= DEFINITIONS_KEY BLOCK */
+#line 1300 "jikespg.g"
+static void process_definitions_block(void)
+{
+    def_file_prolog = SYM2.block_contents;
 }

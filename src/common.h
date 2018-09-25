@@ -579,6 +579,7 @@ extern FILE *syslis,
             *sysdef;
 
 extern char *sym_file_prolog;
+extern char *def_file_prolog;
 
 /******************************************************/
 /*  The variables below are global counters.          */

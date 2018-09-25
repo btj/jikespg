@@ -44,6 +44,7 @@ FILE *sysgrm,
      *sysdef;
 
 char *sym_file_prolog = NULL;
+char *def_file_prolog = NULL;
 
 /******************************************************/
 /*  The variables below are global counters.          */

@@ -1659,10 +1659,14 @@ static void print_symbols(void)
 /****************************************************************************/
 static void print_definitions(void)
 {
-    if (java_bit)
-         fprintf(sysdef, "interface %s\n{\n    public final static int\n\n",
-                         def_tag);
-    else fprintf(sysdef, "enum {\n");
+    if (def_file_prolog == NULL)
+    {
+        if (java_bit)
+             fprintf(sysdef, "interface %s\n{\n    public final static int\n\n",
+                             def_tag);
+        else fprintf(sysdef, "enum {\n");
+    }
+    else fprintf(sysdef, "%s", def_file_prolog);
 
     if (error_maps_bit)
     {

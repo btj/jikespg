@@ -35,7 +35,7 @@ $no_action
 
 $Terminals
     DEFINE_KEY TERMINALS_KEY ALIAS_KEY START_KEY RULES_KEY
-    NAMES_KEY END_KEY
+    NAMES_KEY DEFINITIONS_KEY END_KEY
 
     EQUIVALENCE ARROW OR
 
@@ -125,6 +125,7 @@ static void add_block_definition(struct terminal_type *term)
                   [start_block]
                   [rules_block]
                   [names_block]
+                  [definitions_block]
                   [%END]
 /:$no_action:/
                 | bad_symbol
@@ -1287,6 +1288,20 @@ static void act$rule_number(void)
 /:$no_action:/
                  | {action_block} action_block
 /:$no_action:/
+
+[definitions_block] ::= $EMPTY
+/:$no_action:/
+                      | definitions_block
+/:$no_action:/
+
+definitions_block ::= DEFINITIONS_KEY BLOCK
+/:$offset process_definitions_block, /* $rule_number */:/
+/.$location
+static void process_definitions_block(void)
+{
+    def_file_prolog = SYM2.block_contents;
+}
+./
 
 /:$offset NULL};:/
 $End

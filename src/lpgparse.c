@@ -2047,6 +2047,13 @@ remove_quotes:
                             p2 = p1 + 7;
                             return;
                         }
+                        if (strxeq(p3, "efinitions") && IsSpace(*(p1+12)))
+                        {
+                            ct = DEFINITIONS_KEY_TK;
+                            ct_length = 12;
+                            p2 = p1 + 12;
+                            return;
+                        }
                         break;
 
                     case 'e': case 'E':
