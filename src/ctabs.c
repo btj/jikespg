@@ -1727,7 +1727,7 @@ static void print_definitions(void)
                  "      EOLT_SYMBOL       = %d,\n"
                  "      ACCEPT_ACTION     = %d,\n"
                  "      ERROR_ACTION      = %d;\n"
-                 "};\n\n",
+                 "}\n",
 
 
                  (table_opt == OPTIMIZE_SPACE ? num_terminals : num_symbols),
